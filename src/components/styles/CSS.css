@@ -1,0 +1,31 @@
+ul {
+  list-style: none;
+}
+h1 {
+  color: white;
+  font-family: "Lobster", cursive;
+}
+.navbar23 {
+  display: flex;
+}
+.nav-link {
+  color: white !important;
+}
+.nav-link:hover {
+  font-size: 25px;
+  color: blue !important;
+}
+
+.container__playlist {
+  display: flex;
+  justify-content: space-between;
+  background-color: #343a40;
+  margin: auto;
+}
+.container__pg {
+  width: 70%;
+  margin: auto;
+}
+.container__video-header {
+  margin: auto;
+}

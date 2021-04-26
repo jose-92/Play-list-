@@ -1,0 +1,11 @@
+.container__img {
+  height: 500px;
+  width: 800px;
+
+  margin: auto;
+  /* border: 1px solid gray; */
+  border-radius: 10px;
+}
+/* .prf2 {
+  font-size: 20px;
+} */
