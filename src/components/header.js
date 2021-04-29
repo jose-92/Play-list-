@@ -9,7 +9,8 @@ import Footer from "./footer";
 import ReactPlayer from "react-player";
 
 const Header = () => {
-  const [renderData, setRenderData] = useState("");
+  const [renderData, setRenderData] = useState([]);
+  const [card, setCard] = useState([]);
   // const KEY = "AIzaSyCRecMngvtKkNo-R0X_Y21P6hfitKsvGm4";
   // const searchQuery = "motos";
 
@@ -19,19 +20,30 @@ const Header = () => {
   //   );
   //   const data = await res.json();
   //   console.log(data);
+  // &channelId=${channel_id}
   // };
 
-  const handleSearch = async () => {
-    const searchQuery = "musica";
-    const KEY = await "AIzaSyCRecMngvtKkNo-R0X_Y21P6hfitKsvGm4";
-    const channel_id = "UCBNErgmIAhgCzqI1-nURPeQ";
+  const handleSearch = () => {
+    const searchQuery = "motos  ";
+    const KEY = "AIzaSyCRecMngvtKkNo-R0X_Y21P6hfitKsvGm4";
+    // const CHANNEL_ID = "UCWKo4qLJ1sYd-rTQPihB7_Q";
     axios
       .get(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&type=channel&q=${searchQuery}&safeSearch=none&key=${KEY}&channelId=${channel_id}`
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=2&type=channels=${searchQuery}1safeSearch=none&key=${KEY}`
       )
       .then((results) => {
+        const initialArray = results.data.items;
+        const firstResult = results.data.items.splice(0, 1);
+        console.log(firstResult);
+        setRenderData(firstResult);
+        const otherResults = initialArray;
+        setCard(otherResults);
+
         setRenderData(results.data.items);
+        setCard(results.data.items);
+
         console.log(results.data);
+        // console.log(card);
       });
   };
 
@@ -52,7 +64,7 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="#">
-                  Musica-
+                  Musica
                 </Link>
               </li>
               <li className="nav-item">
@@ -73,6 +85,7 @@ const Header = () => {
 
         {/* <Main /> */}
         <h4>Lista de canales de Youtube</h4>
+        <br />
         <div>
           {renderData &&
             renderData.map((x, id) => (
@@ -89,8 +102,8 @@ const Header = () => {
                   target="blank"
                   href={`https://www.youtube.com/watch?v=` + x.id.videoId}
                 >
+                  {x.snippet.description} <br />
                   {x.snippet.title} <br />
-                  {x.snippet.channelTitle} <br />
                 </a>
               </div>
             ))}

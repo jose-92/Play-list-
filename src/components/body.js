@@ -1,8 +1,9 @@
 import React from "react";
 import "./styles/body.css";
 import { Link } from "react-router-dom";
+import ReactPlayer from "react-player";
 
-const Body = () => {
+const Body = (props) => {
   return (
     <div className="container__body">
       <div className="container__card-item">
@@ -14,7 +15,7 @@ const Body = () => {
           <p className="prf">
             Jackie Evancho - Imaginer (from Dream With Me In Concert)
           </p>
-          <p className="prf">Jackie evancho </p>
+          <p className="prf">{props.nombre}</p>
         </Link>
       </div>
       <div className="container__card-item">
