@@ -1,24 +1,16 @@
 .container__body {
   display: flex;
   justify-content: space-between;
+  margin-top: 100px;
+  border-radius: 10px;
 }
+
 .prf {
-  width: 90%;
-  padding-left: 10px;
+  box-sizing: border-box;
+  width: 80%;
   color: black;
 }
 
-.prf_img {
-  width: 100%;
-  padding: 5px;
-  border-radius: 10px;
-}
-.container__card-item {
-  /* border: 1px solid gray; */
-  border-radius: 10px;
-  margin-top: 15px;
-  color: white;
-}
 .container__card-item:hover {
   background-color: #c6c6c8;
 }
