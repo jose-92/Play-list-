@@ -10,13 +10,16 @@ import "./styles/body.css";
 const Header = () => {
   const [renderData, setRenderData] = useState([]);
   const [card, setCard] = useState([]);
+  const [value, setValue] = useState("fiestas");
 
   useEffect(() => {
     handleSearch();
   }, []);
 
   const handleSearch = () => {
-    const searchQuery = "motos honda";
+    const searchQuery = value;
+    console.log(searchQuery);
+
     const KEY = "AIzaSyCRecMngvtKkNo-R0X_Y21P6hfitKsvGm4";
     // const CHANNEL_ID = "UCWKo4qLJ1sYd-rTQPihB7_Q";
     axios
@@ -44,6 +47,26 @@ const Header = () => {
       <div className="container__pg">
         <div className="container__playlist">
           <h1 className="navbar navbar-dark bg-dark  playlist">PLAY LIST</h1>
+          <input
+            type="text"
+            className="input__header form-control"
+            onChange={(e) => {
+              setValue(e.target.value);
+            }}
+            placeholder="Buscar"
+          />
+          <button
+            type="button"
+            className="btn btn-primary button"
+            onClick={(e) => {
+              console.log(value);
+              handleSearch();
+
+              // searchQuery = setValue;
+            }}
+          >
+            Buscar
+          </button>
           <div className="navbar navbar-expand-lg navbar-light">
             <ul className="navbar-nav mr-auto ">
               <li className="nav-item active">
@@ -122,7 +145,7 @@ const Header = () => {
                   </a>
                 </div>
                 <div>
-                  {/* <ReactPlayer
+                  <ReactPlayer
                     controls
                     className="prf_img"
                     width="400px"
@@ -140,7 +163,7 @@ const Header = () => {
                     href={`https://www.youtube.com/watch?v=` + x.id.videoId}
                   >
                     <p className="prf">{x.snippet.description}</p>
-                  </a> */}
+                  </a>
                 </div>
               </div>
             ))}
