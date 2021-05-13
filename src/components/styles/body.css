@@ -1,19 +1,35 @@
 .container__body {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 100px;
+  /* display: flex; */
+  /* justify-content: space-between; */
+
+  margin-top: 20px;
   border-radius: 10px;
+  border: solid 1px black;
+  /* width: 45%; */
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: rgb(228, 222, 222);
+}
+.container__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 12px;
+}
+h4 {
+  font-family: "Itim", cursive;
 }
 
 .prf {
-  box-sizing: border-box;
-  width: 80%;
+  width: 95%;
   color: black;
+  font-family: "Itim", cursive;
 }
 
-.container__card-item:hover {
+/* .container__card-item:hover {
   background-color: #c6c6c8;
-}
+} */
 .input__header {
   height: 40px;
   border-radius: 50px;
@@ -26,4 +42,7 @@
 .button {
   height: 40px;
   margin-top: 15px;
+}
+.siguienteContenido {
+  margin-top: 50px;
 }

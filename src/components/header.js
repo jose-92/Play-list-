@@ -24,7 +24,7 @@ const Header = () => {
     // const CHANNEL_ID = "UCWKo4qLJ1sYd-rTQPihB7_Q";
     axios
       .get(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&type=video&q=${searchQuery}&safeSearch=none&key=${KEY}`
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&type=video&q=${searchQuery}&safeSearch=none&key=${KEY}`
       )
       .then(({ data: { items } }) => {
         const initialArray = items;
@@ -116,10 +116,11 @@ const Header = () => {
                   {x.snippet.description} <br />
                   {/* {x.snippet.title} <br /> */}
                 </a>
+                <h4 className="siguienteContenido">Mas contedido para ver</h4>
               </div>
             ))}
         </div>
-        <div>
+        <div className="container__cards">
           {card &&
             card.map((x, id) => (
               <div key={id} className="container__body">
@@ -127,7 +128,7 @@ const Header = () => {
                   <ReactPlayer
                     controls
                     className="prf_img"
-                    width="400px"
+                    width="inherit"
                     height="300px"
                     url={`https://www.youtube.com/watch?v=` + x.id.videoId}
                   />
@@ -144,7 +145,7 @@ const Header = () => {
                     <p className="prf">{x.snippet.description}</p>
                   </a>
                 </div>
-                <div>
+                {/* <div>
                   <ReactPlayer
                     controls
                     className="prf_img"
@@ -164,11 +165,11 @@ const Header = () => {
                   >
                     <p className="prf">{x.snippet.description}</p>
                   </a>
-                </div>
+                </div> */}
               </div>
             ))}
-          <Footer />
         </div>
+        <Footer />
       </div>
     </BrowserRouter>
   );
